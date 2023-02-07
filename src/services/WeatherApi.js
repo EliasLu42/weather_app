@@ -2,9 +2,7 @@ import axios from 'axios';
 
 class WeatherApi {
 
-	static apiPathWearher = 'https://api.openweathermap.org/data/2.5/weather';
-//	static apiPathReverseLocation = 'https://api.openweathermap.org/geo/1.0/reverse';
-	static apiPathDirectLocation = 'https://api.openweathermap.org/geo/1.0/direct';
+	static apiPathWeather = 'https://api.openweathermap.org/data/2.5/weather';
 	static apiKey = 'a6c655d34b9b2fbb40bee2426ebee399';
 
 	static async getData(params, dataType){
@@ -20,7 +18,7 @@ class WeatherApi {
 		let apiPath = '';
 		switch(dataType){
 			case 'weather':
-				apiPath = WeatherApi.apiPathWearher;
+				apiPath = WeatherApi.apiPathWeather;
 
 				break;
 			default:
