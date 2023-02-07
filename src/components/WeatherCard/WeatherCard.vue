@@ -6,17 +6,12 @@
 
     <template v-if="!isSettings">
       <div class="WeatherWidget_card_stat">
-        <img class="WeatherWidget_card_statIcon" :src="weatherCard.r.weather.icon">
-        <div class="WeatherWidget_card_temp">{{ weatherCard.r.tempData.temp }}&deg;C</div>
+        <img class="WeatherWidget_card_statIcon" :src="weatherCard.r.weatherIcon">
+        <div class="WeatherWidget_card_temp">{{ weatherCard.r.temp }}&deg;C</div>
       </div>
 
       <div class="WeatherWidget_card_params">
-        <WeatherCardParam name="Feels like" :value="weatherCard.r.tempData.feelsLike"></WeatherCardParam>
-        <WeatherCardParam :name="weatherCard.r.weather.stat" :value="weatherCard.r.weather.description"></WeatherCardParam>
-        <WeatherCardParam :value="weatherCard.r.wind.speed" iconName="wind"></WeatherCardParam>
-        <WeatherCardParam :value="weatherCard.r.pressure" iconName="pressure"></WeatherCardParam>
-        <WeatherCardParam name="Humidity" :value="weatherCard.r.humidity"></WeatherCardParam>
-        <WeatherCardParam name="Visibility" :value="weatherCard.r.visibility"></WeatherCardParam>
+        <WeatherCardParam v-for="param of weatherCard.r.params" :key="param.name" :name="param.name" :value="param.value" :iconName="param.iconName"></WeatherCardParam>
       </div>
     </template>
 

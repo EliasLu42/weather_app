@@ -4,27 +4,12 @@ import WeatherApi from '@/services/WeatherApi';
 class WeatherCardC{
 
 	r = {
+		params:[],
+		temp:0,
 		weatherWidgetClass:{},
 		cardHeader:'',
 		location:'',
-		weather:{
-			stat:'',
-			description:'',
-			icon:''
-		},
-
 		weatherIcon:'',
-		tempData:{
-			temp:0,
-			feelsLike:0
-		},
-		pressure:'0hPa',
-		humidity:0,
-		wind:{
-			speed:'0m/s'
-		},
-		visibility:0,
-
 		country:''
 	};
 
@@ -59,19 +44,38 @@ class WeatherCardC{
 	genWeatherData(data){
 		this.r.location = data.name;
 
-		this.r.weather.stat = data.weather[0].main;
-		this.r.weather.description = data.weather[0].description;
-		this.r.weather.icon = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+		this.r.params.push({
+			name:'Feels like',
+			value:Math.floor(data.main.feels_like)
+		});
 
-		this.r.tempData.temp = Math.round(data.main.temp);
-		this.r.tempData.feelsLike = Math.floor(data.main.feels_like);
-		this.r.pressure = Math.floor(data.main.pressure) + 'hPa';
-		this.r.humidity = Math.floor(data.main.humidity) + '%';
+		this.r.params.push({
+			name:data.weather[0].main,
+			value:data.weather[0].description
+		});
 
-		this.r.wind.speed = Math.floor(data.wind.speed) + 'm/s';
+		this.r.params.push({
+			value:Math.floor(data.wind.speed) + 'm/s',
+			iconName:'wind'
+		});
 
-		this.r.visibility = (data.visibility/1000).toFixed(2) + 'km';
+		this.r.params.push({
+			value:Math.floor(data.main.pressure) + 'hPa',
+			iconName:'pressure'
+		});
 
+		this.r.params.push({
+			name:'Humidity',
+			value:Math.floor(data.main.humidity) + '%'
+		});
+
+		this.r.params.push({
+			name:'Visibility',
+			value:(data.visibility/1000).toFixed(2) + 'km'
+		});
+
+		this.r.weatherIcon = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+		this.r.temp = Math.round(data.main.temp);
 		this.r.country = data.sys.country;
 	}
 
