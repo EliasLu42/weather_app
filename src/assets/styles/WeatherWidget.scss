@@ -1,0 +1,38 @@
+.WeatherWidget {
+	--weather_widget-padding: 16px;
+
+	background-color: #fff;
+	max-width: 315px;
+	min-height: 270px;
+	padding: var(--weather_widget-padding);
+	font-family: 'Open Sans', sans-serif;
+	display: grid;
+	grid-template-columns: 1fr 28px;
+	column-gap: 16px;
+	position: relative;
+
+	&_list{ display: flex; flex-direction: column; gap: 32px; }
+	&_settingsOpener {
+		position: sticky;
+		top: 16px;
+	}
+
+	&_settingsOpener:before {
+		content: '';
+		background-image: url('@/assets/images/settings.svg');
+		background-size: 28px;
+		display: inline-block;
+		width: 28px;
+		height: 28px;
+	}
+	&_settingsOpener:hover:before {
+		background-image: url('@/assets/images/settings_fill.svg');
+	}
+
+	&_settingsOpener-opened:before{
+		background-image: url('@/assets/images/cross.svg');
+	}
+	&_settingsOpener-opened:hover:before{
+		background-image: url('@/assets/images/cross_rounded.svg');
+	}
+}

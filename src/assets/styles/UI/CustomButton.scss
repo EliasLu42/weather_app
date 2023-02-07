@@ -1,0 +1,40 @@
+.CustomButton{
+	background: none;
+	border: none;
+	width: 28px;
+	height: 28px;
+	padding: 0;
+	cursor: pointer;
+
+	&:before{
+		background-size: 28px;
+		display: inline-block;
+		width: 28px;
+		height: 28px;
+	}
+
+	&-enter{
+		border-radius: 8px;
+	}
+
+	&-enter:before,
+	&-burger:before,
+	&-delete:before{
+		content: '';
+	}
+	&-enter:before{
+		background-image: url('@/assets/images/enter.svg');
+	}
+
+	&-burger:before{
+		background-image: url('@/assets/images/burger.svg');
+	}
+
+	&-delete:before{
+		background-image: url('@/assets/images/delete.svg');
+	}
+
+	&-hover:hover{
+		background-color: #e1e1e1;
+	}
+}

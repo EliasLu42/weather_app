@@ -1,0 +1,76 @@
+.WeatherWidget_card {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+
+	&_header{
+		display: flex;
+		justify-content: flex-start;
+		font-size: 22px;
+		font-weight: 700;
+	}
+
+	&_stat {
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+	}
+
+	&_statIcon {
+		width: 125px;
+		height: 125px;
+	}
+
+	&_temp {
+		font-size: 48px;
+		font-weight: 600;
+	}
+
+	&_params {
+		display: flex;
+		flex-wrap: wrap;
+		column-gap: 16px;
+		row-gap: 16px;
+	}
+
+	&_param {
+		display: flex;
+		align-items: center;
+		font-weight: 600;
+
+		&_icon {
+			width: 36px;
+			height: 36px;
+			margin-right: 8px;
+		}
+	}
+
+	.dragging{ opacity: 0.5; }
+
+	/* settings */
+	&_settingsList{
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+	&-settings{
+		gap: 16px;
+
+		&_item{
+			padding: 12px 8px;
+			background-color: #d0d0d0;
+			display: flex;
+		}
+		&_drag{
+			margin-right: 8px;
+		}
+
+		&_delete{
+			margin-left: auto;
+		}
+	}
+
+	&_error{
+		color: #c53333;
+	}
+}

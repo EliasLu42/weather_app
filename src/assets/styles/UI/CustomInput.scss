@@ -1,0 +1,29 @@
+.CustomInput{
+	width: 100%;
+	min-height: 28px;
+	padding-top: 20px;
+	display: inline-flex;
+	position: relative;
+
+	input{
+		width: 100%;
+	}
+	input:focus ~ &_caption,
+	input:not(:placeholder-shown) ~ &_caption{
+		font-size: 12px;
+		transform: translate(0, calc(-1em - 10px));
+	}
+
+	.CustomButton{
+		margin-left: 8px;
+	}
+
+	&_caption{
+		pointer-events: none;
+		position: absolute;
+		padding: 0 4px;
+		font-size: 14px;
+		transform: translate(0, 5px);
+		transition: 0.1s;
+	}
+}
