@@ -3,7 +3,7 @@ import axios from 'axios';
 class WeatherApi {
 
 	static apiPathWeather = 'https://api.openweathermap.org/data/2.5/weather';
-	static apiKey = 'a6c655d34b9b2fbb40bee2426ebee399';
+	static apiKey = '';
 
 	static async getData(params, dataType){
 		if(
